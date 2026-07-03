@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VULKORA | متجر إلكتروني - تسوق أونلاين</title>
+<meta name="description" content="VULKORA - متجرك الإلكتروني المتكامل. تسوق أحدث المنتجات بأسعار مميزة وشحن سريع.">
+<meta name="keywords" content="VULKORA, متجر إلكتروني, تسوق اونلاين, online store">
+<meta name="robots" content="index, follow">
+<meta name="author" content="VULKORA">
+<link rel="canonical" href="https://www.vulkora-store.com/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="VULKORA | متجر إلكتروني">
+<meta property="og:description" content="تسوق أحدث المنتجات في متجر VULKORA بأسعار مميزة وشحن سريع.">
+<meta property="og:url" content="https://www.vulkora-store.com/">
+<meta property="og:image" content="https://www.vulkora-store.com/assets/og-image.jpg">
+<meta property="og:locale" content="ar_AR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VULKORA | متجر إلكتروني">
+<meta name="twitter:description" content="تسوق أحدث المنتجات في متجر VULKORA بأسعار مميزة وشحن سريع.">
+<meta name="twitter:image" content="https://www.vulkora-store.com/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0D0D0D; --panel:#1c1c1c; --panel2:#161616;
+    --red:#FF4D00; --orange:#FFA21A; --white:#FFFFFF; --gray:#6B6B6B; --lg:#a3a3a3;
+    --ok:#22c55e; --err:#ff4d4d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--black);color:var(--white);font-family:'Tajawal','Poppins',sans-serif;min-height:100vh;}
+  html[dir="ltr"] body{font-family:'Poppins','Tajawal',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  input,select{font-family:inherit;}
+  .hidden{display:none !important;}
+
+  header{position:sticky;top:0;z-index:100;background:rgba(13,13,13,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 5%;max-width:1300px;margin:0 auto;gap:16px;}
+  .logo{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+  .logo-mark{width:28px;height:28px;background:linear-gradient(135deg,var(--red),var(--orange));clip-path:polygon(0 0,30% 0,50% 55%,70% 0,100% 0,55% 100%,45% 100%);}
+  .logo-text{font-family:'Poppins',sans-serif;font-weight:800;font-size:19px;letter-spacing:1px;}
+  .navlinks{display:flex;gap:20px;font-size:13px;color:var(--lg);}
+  .navlinks button:hover{color:var(--orange);}
+  .top-actions{display:flex;align-items:center;gap:14px;}
+  .lang-switch{display:flex;border:1px solid rgba(255,255,255,.15);border-radius:20px;overflow:hidden;font-size:11px;}
+  .lang-switch button{padding:6px 12px;font-weight:600;color:var(--gray);}
+  .lang-switch button.active{background:linear-gradient(90deg,var(--red),var(--orange));color:var(--white);}
+  .currency-select{background:var(--panel);color:var(--white);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:6px 10px;font-size:11px;outline:none;cursor:pointer;}
+  .icon-btn{width:20px;height:20px;stroke:var(--white);position:relative;}
+  .cart-btn{position:relative;display:flex;align-items:center;}
+  .cart-count{position:absolute;top:-8px;inset-inline-start:-9px;background:var(--red);font-size:10px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+
+  main{max-width:1300px;margin:0 auto;padding:0 5%;}
+
+  /* HERO */
+  .hero{padding:60px 0 70px;display:flex;align-items:center;gap:50px;}
+  .hero-copy{flex:1;}
+  .eyebrow{color:var(--orange);font-size:12px;letter-spacing:3px;font-weight:600;margin-bottom:16px;font-family:'Poppins',sans-serif;}
+  .hero h1{font-size:42px;font-weight:800;line-height:1.2;margin-bottom:16px;}
+  .hero h1 span{background:linear-gradient(90deg,var(--red),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p{color:var(--lg);font-size:14.5px;max-width:440px;line-height:1.8;margin-bottom:26px;}
+  .btn-primary{background:linear-gradient(90deg,var(--red),var(--orange));color:#fff;font-weight:700;padding:13px 28px;border-radius:8px;font-size:13.5px;}
+  .hero-orb{width:220px;height:220px;border-radius:50%;flex-shrink:0;background:conic-gradient(from 200deg,#1a1a1a,#2a1105,var(--red),var(--orange),#2a1105,#1a1a1a);box-shadow:0 0 60px rgba(255,77,0,.25);}
+
+  /* CATEGORY PILLS */
+  .cat-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
+  .cat-pill{padding:9px 18px;border-radius:20px;background:var(--panel);border:1px solid rgba(255,255,255,.08);font-size:12.5px;font-weight:600;color:var(--lg);}
+  .cat-pill.active{background:linear-gradient(90deg,var(--red),var(--orange));color:#fff;border-color:transparent;}
+
+  /* PRODUCTS */
+  .section-title{font-size:22px;font-weight:800;margin-bottom:18px;}
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:60px;}
+  .prod-card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:14px;overflow:hidden;transition:.2s;cursor:pointer;}
+  .prod-card:hover{border-color:rgba(255,77,0,.5);transform:translateY(-3px);}
+  .prod-img{aspect-ratio:1/1;background:linear-gradient(135deg,#222,#151515);display:flex;align-items:center;justify-content:center;}
+  .prod-img svg{width:42px;height:42px;stroke:var(--gray);}
+
+  /* PRODUCT DETAIL MODAL */
+  .product-box{max-width:640px;position:relative;}
+  .pd-top{display:flex;gap:22px;margin-bottom:6px;}
+  .pd-img{width:180px;height:180px;flex-shrink:0;border-radius:14px;background:linear-gradient(135deg,#222,#151515);display:flex;align-items:center;justify-content:center;}
+  .pd-img svg{width:70px;height:70px;stroke:var(--gray);}
+  .pd-info{flex:1;}
+  .pd-cat-tag{display:inline-block;font-size:10.5px;color:var(--orange);background:rgba(255,162,26,.1);border:1px solid rgba(255,162,26,.3);padding:3px 10px;border-radius:20px;margin-bottom:8px;}
+  .pd-name{font-size:18px;font-weight:800;margin-bottom:8px;}
+  .pd-rating{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);margin-bottom:10px;}
+  .pd-rating .stars{color:var(--orange);letter-spacing:1px;}
+  .pd-price{font-size:22px;font-weight:800;color:var(--orange);margin-bottom:14px;}
+  .pd-qty-row{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .pd-qty-row .qty-row button{width:28px;height:28px;font-size:16px;}
+  .pd-section-title{font-size:13px;font-weight:700;margin:20px 0 8px;color:var(--white);}
+  .pd-desc{color:var(--lg);font-size:12.5px;line-height:1.9;}
+  .pd-specs{width:100%;border-collapse:collapse;font-size:12px;}
+  .pd-specs tr{border-bottom:1px solid rgba(255,255,255,.06);}
+  .pd-specs td{padding:9px 4px;}
+  .pd-specs td:first-child{color:var(--gray);width:40%;}
+  .pd-specs td:last-child{color:var(--white);font-weight:500;}
+  .close-x-abs{position:absolute;top:16px;inset-inline-end:16px;font-size:18px;color:var(--gray);width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;}
+
+  /* ADMIN PANEL */
+  .admin-box{max-width:600px;position:relative;}
+  .admin-note{background:rgba(255,162,26,.08);border:1px solid rgba(255,162,26,.25);border-radius:8px;padding:10px 14px;font-size:11px;color:var(--orange);margin-bottom:18px;line-height:1.7;}
+  .admin-success{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--ok);margin-bottom:14px;}
+  .admin-list{margin-top:10px;}
+  .admin-list-item{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--panel);border-radius:8px;margin-bottom:8px;font-size:12px;}
+  .admin-list-item span{color:var(--lg);}
+  .admin-del-btn{color:var(--err);font-size:11px;font-weight:700;}
+  .admin-empty{color:var(--gray);font-size:12px;text-align:center;padding:14px 0;}
+  .admin-welcome{font-size:12.5px;color:var(--lg);margin-bottom:4px;}
+  .role-badge{background:rgba(255,162,26,.15);color:var(--orange);font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-inline-start:6px;}
+  .admin-list-item em{color:var(--gray);font-style:normal;font-size:10.5px;}
+  .admin-tabs{display:flex;gap:8px;margin:14px 0 20px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:0;}
+  .admin-tab-btn{padding:9px 6px;font-size:12px;font-weight:600;color:var(--gray);border-bottom:2px solid transparent;margin-bottom:-1px;}
+  .admin-tab-btn.active{color:var(--orange);border-bottom-color:var(--orange);}
+  .sales-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+  .sales-card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;text-align:center;}
+  .sales-card .val{font-size:18px;font-weight:800;color:var(--orange);font-family:'Poppins',sans-serif;}
+  .sales-card .lbl{font-size:10.5px;color:var(--gray);margin-top:4px;}
+  .order-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.08);font-size:11.5px;}
+  .order-row .oid{font-family:'Poppins',sans-serif;color:var(--lg);}
+  .prod-info{padding:14px;}
+  .prod-info h4{font-size:13px;font-weight:600;margin-bottom:8px;min-height:36px;}
+  .prod-price{color:var(--orange);font-weight:800;font-size:15px;margin-bottom:10px;}
+  .add-btn{width:100%;padding:9px;border-radius:8px;background:rgba(255,77,0,.12);color:var(--orange);font-size:12px;font-weight:700;border:1px solid rgba(255,77,0,.3);}
+  .add-btn:hover{background:linear-gradient(90deg,var(--red),var(--orange));color:#fff;}
+  .add-btn.added{background:var(--ok);color:#fff;border-color:var(--ok);}
+
+  /* CART DRAWER */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;}
+  .drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:400px;max-width:92vw;background:var(--panel2);z-index:201;display:flex;flex-direction:column;border-inline-start:1px solid rgba(255,255,255,.08);}
+  .drawer-head{padding:20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);}
+  .drawer-head h3{font-size:17px;}
+  .close-x{font-size:20px;color:var(--gray);}
+  .drawer-body{flex:1;overflow-y:auto;padding:16px 20px;}
+  .cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:center;}
+  .cart-item .thumb{width:52px;height:52px;background:var(--panel);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .cart-item .thumb svg{width:24px;height:24px;stroke:var(--gray);}
+  .cart-item .info{flex:1;}
+  .cart-item .info h5{font-size:12.5px;margin-bottom:6px;}
+  .qty-row{display:flex;align-items:center;gap:10px;}
+  .qty-row button{width:22px;height:22px;background:var(--panel);border-radius:6px;font-size:14px;}
+  .cart-item .price{font-size:13px;font-weight:700;color:var(--orange);}
+  .remove-btn{font-size:11px;color:var(--gray);margin-top:6px;}
+  .empty-cart{text-align:center;color:var(--gray);padding:60px 0;font-size:13px;}
+  .drawer-foot{padding:20px;border-top:1px solid rgba(255,255,255,.08);}
+  .subtotal-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:14px;}
+  .subtotal-row strong{color:var(--orange);font-size:17px;}
+
+  /* CHECKOUT MODAL */
+  .modal{position:fixed;inset:0;z-index:210;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .modal-box{background:var(--panel2);border-radius:16px;max-width:520px;width:100%;max-height:88vh;overflow-y:auto;padding:28px;border:1px solid rgba(255,255,255,.08);}
+  .modal-box h3{font-size:19px;margin-bottom:4px;}
+  .modal-sub{color:var(--gray);font-size:12px;margin-bottom:20px;}
+  .steps-track{display:flex;gap:6px;margin-bottom:24px;}
+  .steps-track div{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.1);}
+  .steps-track div.done{background:linear-gradient(90deg,var(--red),var(--orange));}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:11.5px;color:var(--lg);margin-bottom:6px;}
+  .field input,.field select{width:100%;padding:11px 14px;background:var(--panel);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;font-size:13px;outline:none;}
+  .field input:focus{border-color:var(--orange);}
+  .field.error input{border-color:var(--err);}
+  .err-text{color:var(--err);font-size:10.5px;margin-top:5px;display:none;}
+  .field.error .err-text{display:block;}
+  .field-row{display:flex;gap:10px;}
+  .field-row .field{flex:1;}
+
+  .pay-option{display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:13px 14px;margin-bottom:10px;}
+  .pay-option.active{border-color:var(--orange);background:rgba(255,162,26,.06);}
+  .pay-option input{accent-color:var(--orange);width:16px;height:16px;flex-shrink:0;}
+  .pay-option .pinfo{flex:1;}
+  .pay-option .pinfo strong{display:block;font-size:13px;}
+  .pay-option .pinfo span{color:var(--gray);font-size:10.5px;}
+
+  .modal-actions{display:flex;gap:10px;margin-top:22px;}
+  .btn-ghost{flex:1;border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:12px;font-size:13px;font-weight:600;}
+  .btn-primary.flex{flex:2;text-align:center;}
+
+  .review-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.08);font-size:12.5px;}
+  .review-row.total strong{color:var(--orange);font-size:16px;}
+
+  .confirm-box{text-align:center;padding:20px 0;}
+  .confirm-icon{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+  .confirm-icon svg{width:30px;height:30px;stroke:var(--ok);}
+  .order-id{font-family:'Poppins',sans-serif;color:var(--orange);font-weight:700;letter-spacing:1px;margin:10px 0 20px;}
+
+  footer{border-top:1px solid rgba(255,255,255,.08);padding:40px 5%;margin-top:40px;color:var(--gray);font-size:12px;text-align:center;}
+
+  @media(max-width:900px){
+    .navlinks{display:none;}
+    .hero{flex-direction:column;text-align:center;}
+    .hero p{margin:0 auto 26px;}
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+    .hero-orb{width:160px;height:160px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="logo"><div class="logo-mark"></div><span class="logo-text">VULKORA</span></div>
+    <nav class="navlinks" id="navlinks"></nav>
+    <div class="top-actions">
+      <select class="currency-select" id="currencySelector">
+        <option value="USD">USD ($)</option>
+        <option value="SAR">SAR (ر.س)</option>
+        <option value="AED">AED (د.إ)</option>
+        <option value="EGP">EGP (ج.م)</option>
+        <option value="EUR">EUR (€)</option>
+        <option value="GBP">GBP (£)</option>
+        <option value="IQD">IQD (د.ع)</option>
+        <option value="KWD">KWD (د.ك)</option>
+        <option value="JOD">JOD (د.أ)</option>
+      </select>
+      <div class="lang-switch" id="langSwitch">
+        <button data-lang="ar">AR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="icon-btn cart-btn" id="cartBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow" id="heroEyebrow"></div>
+      <h1 id="heroTitle"></h1>
+      <p id="heroDesc"></p>
+      <button class="btn-primary" id="heroBtn"></button>
+    </div>
+    <div class="hero-orb"></div>
+  </section>
+
+  <div class="cat-pills" id="catPills"></div>
+  <h2 class="section-title" id="prodTitle"></h2>
+  <div class="prod-grid" id="prodGrid"></div>
+</main>
+
+<footer id="footerText"></footer>
+
+<!-- CART DRAWER (hidden by default) -->
+<div id="cartOverlay" class="overlay hidden"></div>
+<div id="cartDrawer" class="drawer hidden">
+  <div class="drawer-head">
+    <h3 id="cartHeadTitle"></h3>
+    <button class="close-x" id="closeCart">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</div>
+
+<!-- CHECKOUT MODAL (hidden by default) -->
+<div id="checkoutModal" class="modal hidden">
+  <div class="modal-box" id="checkoutBox"></div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL (hidden by default) -->
+<div id="productModal" class="modal hidden">
+  <div class="modal-box product-box" id="productBox"></div>
+</div>
+
+<!-- ADMIN LOGIN MODAL (hidden, no visible entry point for customers) -->
+<div id="adminLoginModal" class="modal hidden">
+  <div class="modal-box" id="adminLoginBox" style="max-width:360px;"></div>
+</div>
+
+<!-- ADMIN PANEL MODAL (hidden, no visible entry point for customers) -->
+<div id="adminPanelModal" class="modal hidden">
+  <div class="modal-box admin-box" id="adminPanelBox"></div>
+</div>
+
+<script>
+(function(){
+
+/* ---------- TRANSLATIONS ---------- */
+const T = {
+  ar:{
+    nav:["كل الأقسام","إلكترونيات","أزياء","منزل ومعيشة","جمال"],
+    heroEyebrow:"سوق عالمي",
+    heroTitle1:"كل ما تحتاجه", heroTitle2:"من كل أنحاء العالم",
+    heroDesc:"متجرك الإلكتروني المتكامل، مرتبط مباشرة بمخازن وموردين عالميين.",
+    heroBtn:"تسوق الآن",
+    prodTitle:"الأكثر مبيعاً",
+    add:"أضف للسلة", added:"أُضيف ✓",
+    cartTitle:"سلة التسوق", cartEmpty:"سلتك فارغة، أضف بعض المنتجات",
+    subtotal:"المجموع الفرعي", checkout:"إتمام الشراء", continueShopping:"تابع التسوق",
+    remove:"إزالة",
+    stepShip:"معلومات الشحن", stepPay:"طريقة الدفع", stepReview:"مراجعة الطلب",
+    fullName:"الاسم الكامل", email:"البريد الإلكتروني", phone:"رقم الجوال",
+    address:"العنوان", city:"المدينة", country:"الدولة",
+    reqField:"هذا الحقل مطلوب", invalidEmail:"بريد إلكتروني غير صحيح", invalidPhone:"رقم جوال غير صحيح",
+    next:"التالي", back:"رجوع", placeOrder:"تأكيد الطلب",
+    payCard:"بطاقة ائتمان/خصم", payCardDesc:"Visa، Mastercard، مدى",
+    payPaypal:"PayPal", payPaypalDesc:"ادفع عبر حسابك في PayPal",
+    payMoyasar:"Moyasar (مدى / Apple Pay)", payMoyasarDesc:"بوابة محلية تدعم مدى وApple Pay",
+    payCod:"الدفع عند الاستلام", payCodDesc:"ادفع نقداً عند وصول الطلب",
+    payBnpl:"قسّطها (تابي/تمارا)", payBnplDesc:"قسّط دون فوائد",
+    cardNumber:"رقم البطاقة", expiry:"تاريخ الانتهاء", cvv:"CVV",
+    invalidCard:"رقم بطاقة غير صحيح (16 رقم)", invalidExpiry:"صيغة غير صحيحة (MM/YY)", invalidCvv:"CVV غير صحيح",
+    orderSummary:"ملخص الطلب", shippingFee:"رسوم الشحن", total:"الإجمالي",
+    confirmTitle:"تم تأكيد طلبك!", confirmDesc:"شكراً لك، سنرسل تفاصيل الشحن إلى بريدك الإلكتروني.",
+    orderNum:"رقم الطلب", backHome:"العودة للمتجر",
+    footer:"© 2026 VULKORA — قوّتك في التسوق",
+    catAll:"الكل", catElectronics:"إلكترونيات", catFashion:"أزياء", catHome:"منزل", catBeauty:"جمال",
+    freeShip:"شحن مجاني", langNote:"تم اكتشاف لغة جهازك تلقائياً",
+    viewDetails:"عرض التفاصيل", description:"الوصف", specifications:"المواصفات",
+    category:"الفئة", material:"المادة/المقاس", warehouse:"مخزن الشحن", shippingTime:"مدة الشحن",
+    sku:"رمز المنتج", rating:"التقييم", quantity:"الكمية", closeX:"إغلاق",
+    adminLoginTitle:"دخول المشرف", adminPasswordLabel:"كلمة المرور", adminLoginBtn:"دخول",
+    adminUsernameLabel:"اسم المستخدم", welcomeAdmin:"مرحباً", roleOwner:"مالك", roleAssistant:"مساعد",
+    manageTeamTitle:"إدارة فريق الإدارة (للمالك فقط)", newUsername:"اسم مستخدم جديد", newPassword:"كلمة مرور جديدة",
+    addAccountBtn:"إضافة عضو للفريق", teamListTitle:"أعضاء الفريق الحاليون", addedByLabel:"أُضيف بواسطة",
+    accountAdded:"تمت إضافة العضو بنجاح ✓", usernameTaken:"اسم المستخدم مستخدم بالفعل",
+    teamNote:"ملاحظة: الحسابات المضافة هنا مؤقتة لهذه الجلسة فقط. للاستخدام الحقيقي الدائم، استخدم نظام صلاحيات المستخدمين في WordPress (Users → Add New) حيث يمكنك منح كل مساعد دوراً محدداً بشكل دائم وآمن.",
+    salesTabTitle:"المبيعات والرصيد", totalRevenue:"إجمالي المبيعات", totalOrders:"عدد الطلبات",
+    avgOrder:"متوسط قيمة الطلب", noOrdersYet:"لا توجد مبيعات بعد في هذه الجلسة",
+    recentOrders:"آخر الطلبات", orderIdLabel:"رقم الطلب", withdrawalInfoTitle:"كيف تسحب أرباحك فعلياً",
+    withdrawalInfoBody:"هذا الرقم تجريبي فقط لهذه الجلسة. في المتجر الحقيقي، كل بوابة دفع (Stripe، PayPal، Moyasar، تابي/تمارا) لها رصيد ولوحة سحب مستقلة خاصة بها، وليس عبر هذه اللوحة. اسأل Claude لشرح تفصيلي لكل بوابة.",
+    byPaymentMethod:"حسب طريقة الدفع",
+    adminWrongPassword:"كلمة المرور غير صحيحة", adminPanelTitle:"إضافة منتج جديد (مورد/مخزن عالمي)",
+    productNameAr:"اسم المنتج (عربي)", productNameEn:"اسم المنتج (إنجليزي)",
+    productDescAr:"الوصف (عربي)", productDescEn:"الوصف (إنجليزي)",
+    productPrice:"السعر بالدولار ($)", productCategory:"الفئة", productIcon:"أيقونة المنتج",
+    supplierCompany:"اسم الشركة/المورد", supplierCountry:"بلد المخزن/الشحن منه",
+    materialField:"المادة/المقاس (اختياري)", shippingTimeField:"مدة الشحن (مثال: 7-14 يوم)",
+    addProductBtn:"إضافة المنتج للمتجر", adminProductsListTitle:"المنتجات المضافة في هذه الجلسة",
+    deleteBtn:"حذف", adminLogoutBtn:"تسجيل الخروج", adminSuccessMsg:"تمت إضافة المنتج بنجاح ✓",
+    adminNoProducts:"لم تُضف أي منتجات بعد", adminSessionNote:"ملاحظة: هذه إضافة مؤقتة لهذا العرض التجريبي فقط ولا تُحفظ بعد إغلاق الصفحة — في المتجر الحقيقي على WooCommerce ستُحفظ بشكل دائم.",
+    reqFieldShort:"مطلوب",
+    accountTabTitle:"حسابي", currentPasswordLabel:"كلمة المرور الحالية", newUsernameOptional:"اسم مستخدم جديد (اتركه فارغاً للإبقاء عليه)",
+    newPasswordOptional:"كلمة مرور جديدة (اتركها فارغة للإبقاء عليها)", saveAccountBtn:"حفظ التغييرات",
+    accountUpdated:"تم تحديث بيانات حسابك بنجاح ✓", wrongCurrentPassword:"كلمة المرور الحالية غير صحيحة",
+    passwordTooShort:"كلمة المرور يجب ألا تقل عن 8 أحرف", accountNote:"سيتم استخدام اسم المستخدم وكلمة المرور الجديدة في تسجيل الدخول القادم."
+  },
+
+  en:{
+    nav:["All Categories","Electronics","Fashion","Home & Living","Beauty"],
+    heroEyebrow:"GLOBAL MARKETPLACE",
+    heroTitle1:"Everything you need,", heroTitle2:"from everywhere",
+    heroDesc:"Your complete online store, connected directly to global warehouses and suppliers.",
+    heroBtn:"Shop Now",
+    prodTitle:"Best Sellers",
+    add:"Add to Cart", added:"Added ✓",
+    cartTitle:"Shopping Cart", cartEmpty:"Your cart is empty, add some products",
+    subtotal:"Subtotal", checkout:"Checkout", continueShopping:"Continue Shopping",
+    remove:"Remove",
+    stepShip:"Shipping Info", stepPay:"Payment Method", stepReview:"Review Order",
+    fullName:"Full Name", email:"Email", phone:"Phone Number",
+    address:"Address", city:"City", country:"Country",
+    reqField:"This field is required", invalidEmail:"Invalid email address", invalidPhone:"Invalid phone number",
+    next:"Next", back:"Back", placeOrder:"Place Order",
+    payCard:"Credit/Debit Card", payCardDesc:"Visa, Mastercard, Mada",
+    payPaypal:"PayPal", payPaypalDesc:"Pay via your PayPal account",
+    payMoyasar:"Moyasar (Mada / Apple Pay)", payMoyasarDesc:"Local gateway supporting Mada & Apple Pay",
+    payCod:"Cash on Delivery", payCodDesc:"Pay cash when your order arrives",
+    payBnpl:"Buy Now, Pay Later", payBnplDesc:"Split payments, no interest",
+    cardNumber:"Card Number", expiry:"Expiry Date", cvv:"CVV",
+    invalidCard:"Invalid card number (16 digits)", invalidExpiry:"Invalid format (MM/YY)", invalidCvv:"Invalid CVV",
+    orderSummary:"Order Summary", shippingFee:"Shipping Fee", total:"Total",
+    confirmTitle:"Order Confirmed!", confirmDesc:"Thank you, shipping details will be sent to your email.",
+    orderNum:"Order Number", backHome:"Back to Store",
+    footer:"© 2026 VULKORA — Power Your Shopping",
+    catAll:"All", catElectronics:"Electronics", catFashion:"Fashion", catHome:"Home", catBeauty:"Beauty",
+    freeShip:"Free Shipping", langNote:"Your device language was detected automatically",
+    viewDetails:"View Details", description:"Description", specifications:"Specifications",
+    category:"Category", material:"Material/Size", warehouse:"Ships From", shippingTime:"Shipping Time",
+    sku:"SKU", rating:"Rating", quantity:"Quantity", closeX:"Close",
+    adminLoginTitle:"Admin Login", adminPasswordLabel:"Password", adminLoginBtn:"Login",
+    adminUsernameLabel:"Username", welcomeAdmin:"Welcome", roleOwner:"Owner", roleAssistant:"Assistant",
+    manageTeamTitle:"Manage Admin Team (Owner Only)", newUsername:"New Username", newPassword:"New Password",
+    addAccountBtn:"Add Team Member", teamListTitle:"Current Team Members", addedByLabel:"Added by",
+    accountAdded:"Team member added successfully ✓", usernameTaken:"Username already exists",
+    teamNote:"Note: accounts added here are temporary for this session only. For permanent real-world use, use WordPress's user role system (Users → Add New) to grant each assistant a secure, permanent role.",
+    salesTabTitle:"Sales & Balance", totalRevenue:"Total Revenue", totalOrders:"Total Orders",
+    avgOrder:"Average Order Value", noOrdersYet:"No sales yet this session",
+    recentOrders:"Recent Orders", orderIdLabel:"Order ID", withdrawalInfoTitle:"How to Actually Withdraw Your Earnings",
+    withdrawalInfoBody:"This figure is a session-only demo. On the real store, each payment gateway (Stripe, PayPal, Moyasar, Tabby/Tamara) holds its own balance with its own separate payout dashboard — not through this panel. Ask Claude for a full breakdown per gateway.",
+    byPaymentMethod:"By Payment Method",
+    adminWrongPassword:"Incorrect password", adminPanelTitle:"Add New Product (Supplier/Global Warehouse)",
+    productNameAr:"Product Name (Arabic)", productNameEn:"Product Name (English)",
+    productDescAr:"Description (Arabic)", productDescEn:"Description (English)",
+    productPrice:"Price in USD ($)", productCategory:"Category", productIcon:"Product Icon",
+    supplierCompany:"Company/Supplier Name", supplierCountry:"Warehouse/Shipping Country",
+    materialField:"Material/Size (optional)", shippingTimeField:"Shipping Time (e.g. 7-14 days)",
+    addProductBtn:"Add Product to Store", adminProductsListTitle:"Products Added This Session",
+    deleteBtn:"Delete", adminLogoutBtn:"Logout", adminSuccessMsg:"Product added successfully ✓",
+    adminNoProducts:"No products added yet", adminSessionNote:"Note: this addition is temporary for this demo only and won't persist after closing the page — on the real WooCommerce store it will be saved permanently.",
+    reqFieldShort:"Required",
+    accountTabTitle:"My Account", currentPasswordLabel:"Current Password", newUsernameOptional:"New Username (leave blank to keep)",
+    newPasswordOptional:"New Password (leave blank to keep)", saveAccountBtn:"Save Changes",
+    accountUpdated:"Your account was updated successfully ✓", wrongCurrentPassword:"Current password is incorrect",
+    passwordTooShort:"Password must be at least 8 characters", accountNote:"The new username and password will be used the next time you log in."
+  }
+};
+
+/* ---------- PRODUCT DATA ---------- */
+/* NOTE: this array is now only a fallback/demo dataset used if the backend can't be
+   reached (e.g. opening this file locally without deploying the Netlify Functions).
+   Once deployed, loadProductsFromBackend() below replaces it with live data from Supabase,
+   and every admin add/delete goes through /api/products instead of touching this array. */
+let PRODUCTS = [
+  {id:1, cat:"electronics", price:129, icon:"headphone", rating:4.6, sku:"VLK-EL-101",
+    name:{ar:"سماعة رأس لاسلكية ANC", en:"Wireless ANC Headphones"},
+    desc:{ar:"سماعة رأس لاسلكية بخاصية إلغاء الضجيج النشط، بطارية تدوم حتى 30 ساعة، ووسائد أذن مريحة للاستخدام الطويل.", en:"Wireless over-ear headphones with active noise cancellation, up to 30h battery life, and cushioned ear pads for long listening sessions."},
+    material:{ar:"بلاستيك متين + جلد صناعي", en:"Durable plastic + synthetic leather"},
+    origin:{ar:"مخزن CJ - الصين", en:"CJ Warehouse - China"},
+    shipping:{ar:"7-14 يوم عمل", en:"7-14 business days"}},
+  {id:2, cat:"electronics", price:210, icon:"watch", rating:4.4, sku:"VLK-EL-102",
+    name:{ar:"ساعة ذكية رياضية", en:"Smart Sports Watch"},
+    desc:{ar:"تتبع معدل ضربات القلب والخطوات والنوم، مقاومة للماء، وتدعم إشعارات الهاتف مباشرة على المعصم.", en:"Tracks heart rate, steps, and sleep. Water resistant with direct phone notifications on your wrist."},
+    material:{ar:"سيليكون + إطار ألمنيوم", en:"Silicone + aluminum frame"},
+    origin:{ar:"مخزن أمريكا", en:"US Warehouse"},
+    shipping:{ar:"5-9 أيام عمل", en:"5-9 business days"}},
+  {id:6, cat:"electronics", price:65, icon:"phone", rating:4.2, sku:"VLK-EL-103",
+    name:{ar:"سماعة أذن لاسلكية", en:"Wireless Earbuds"},
+    desc:{ar:"سماعات أذن صغيرة بجودة صوت عالية، اتصال بلوتوث مستقر، وعلبة شحن محمولة تدوم طوال اليوم.", en:"Compact earbuds with high-quality sound, stable Bluetooth connection, and a portable charging case for all-day use."},
+    material:{ar:"بلاستيك خفيف الوزن", en:"Lightweight plastic"},
+    origin:{ar:"مخزن CJ - الصين", en:"CJ Warehouse - China"},
+    shipping:{ar:"7-14 يوم عمل", en:"7-14 business days"}},
+
+  {id:3, cat:"fashion", price:159, icon:"jacket", rating:4.5, sku:"VLK-FA-201",
+    name:{ar:"جاكيت شتوي مبطن", en:"Padded Winter Jacket"},
+    desc:{ar:"جاكيت دافئ مبطن بالحشو الصناعي، مقاوم للماء والرياح، مناسب للطقس البارد جداً.", en:"Warm padded jacket with synthetic insulation, water and wind resistant, built for very cold weather."},
+    material:{ar:"بوليستر + حشو صناعي", en:"Polyester + synthetic fill"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"6-11 يوم عمل", en:"6-11 business days"}},
+  {id:7, cat:"fashion", price:75, icon:"shoe", rating:4.3, sku:"VLK-FA-202",
+    name:{ar:"حذاء رياضي خفيف", en:"Lightweight Sneakers"},
+    desc:{ar:"حذاء رياضي مرن وخفيف الوزن بنعل ماص للصدمات، مناسب للمشي الطويل والاستخدام اليومي.", en:"Flexible, lightweight sneakers with shock-absorbing soles, ideal for long walks and daily wear."},
+    material:{ar:"شبك تنفسي + نعل مطاطي", en:"Breathable mesh + rubber sole"},
+    origin:{ar:"مخزن أمريكا", en:"US Warehouse"},
+    shipping:{ar:"5-9 أيام عمل", en:"5-9 business days"}},
+  {id:9, cat:"fashion", price:220, icon:"dress", rating:4.7, sku:"VLK-FA-203",
+    name:{ar:"فستان سهرة أنيق", en:"Elegant Evening Dress"},
+    desc:{ar:"فستان سهرة بقصة عصرية وقماش مريح يلائم المناسبات الرسمية والسهرات الخاصة.", en:"An evening dress with a modern cut and comfortable fabric, perfect for formal occasions and special nights out."},
+    material:{ar:"شيفون + بطانة ساتان", en:"Chiffon with satin lining"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"6-11 يوم عمل", en:"6-11 business days"}},
+  {id:10, cat:"fashion", price:180, icon:"bag", rating:4.5, sku:"VLK-FA-204",
+    name:{ar:"حقيبة يد جلدية", en:"Leather Handbag"},
+    desc:{ar:"حقيبة يد أنيقة بجلد عالي الجودة، تصميم عملي بعدة جيوب داخلية مناسبة للاستخدام اليومي.", en:"An elegant handbag in premium leather with a practical multi-pocket design suited for everyday use."},
+    material:{ar:"جلد طبيعي", en:"Genuine leather"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"6-11 يوم عمل", en:"6-11 business days"}},
+  {id:11, cat:"fashion", price:120, icon:"sunglasses", rating:4.4, sku:"VLK-FA-205",
+    name:{ar:"نظارة شمسية عصرية", en:"Modern Sunglasses"},
+    desc:{ar:"نظارة شمسية بعدسات مستقطبة تحمي من الأشعة فوق البنفسجية، بإطار خفيف ومريح.", en:"Sunglasses with polarized UV-protective lenses and a lightweight, comfortable frame."},
+    material:{ar:"إطار أسيتات + عدسات مستقطبة", en:"Acetate frame + polarized lenses"},
+    origin:{ar:"مخزن أمريكا", en:"US Warehouse"},
+    shipping:{ar:"5-9 أيام عمل", en:"5-9 business days"}},
+  {id:12, cat:"fashion", price:45, icon:"tshirt", rating:4.1, sku:"VLK-FA-206",
+    name:{ar:"تيشيرت قطني أساسي", en:"Basic Cotton T-Shirt"},
+    desc:{ar:"تيشيرت قطني ناعم بقصة مريحة، متوفر بألوان متعددة، مثالي كقطعة أساسية في خزانتك.", en:"Soft cotton t-shirt with a comfortable fit, available in multiple colors, a wardrobe essential."},
+    material:{ar:"قطن 100%", en:"100% Cotton"},
+    origin:{ar:"مخزن CJ - الصين", en:"CJ Warehouse - China"},
+    shipping:{ar:"7-14 يوم عمل", en:"7-14 business days"}},
+  {id:13, cat:"fashion", price:130, icon:"jeans", rating:4.3, sku:"VLK-FA-207",
+    name:{ar:"بنطلون جينز كلاسيكي", en:"Classic Denim Jeans"},
+    desc:{ar:"بنطلون جينز بقصة مستقيمة وخامة متينة تدوم طويلاً مع الاستخدام اليومي.", en:"Straight-fit denim jeans made from durable fabric built to last with everyday wear."},
+    material:{ar:"دنيم قطني ممزوج", en:"Cotton-blend denim"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"6-11 يوم عمل", en:"6-11 business days"}},
+
+  {id:4, cat:"home", price:340, icon:"sofa", rating:4.6, sku:"VLK-HM-301",
+    name:{ar:"كنبة زاوية عصرية", en:"Modern Corner Sofa"},
+    desc:{ar:"كنبة زاوية مريحة بتصميم عصري، قماش متين سهل التنظيف، مناسبة لغرف المعيشة المتوسطة والكبيرة.", en:"A comfortable corner sofa with a modern design, durable easy-clean fabric, ideal for medium to large living rooms."},
+    material:{ar:"قماش بوليستر متين", en:"Durable polyester fabric"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"10-18 يوم عمل", en:"10-18 business days"}},
+  {id:8, cat:"home", price:54, icon:"lamp", rating:4.2, sku:"VLK-HM-302",
+    name:{ar:"مصباح طاولة ذكي", en:"Smart Desk Lamp"},
+    desc:{ar:"مصباح طاولة بإضاءة قابلة للتعديل ودرجات حرارة لون متعددة، مناسب للمكتب وغرفة النوم.", en:"A desk lamp with adjustable brightness and multiple color temperatures, great for office or bedroom use."},
+    material:{ar:"ألمنيوم + بلاستيك ABS", en:"Aluminum + ABS plastic"},
+    origin:{ar:"مخزن CJ - الصين", en:"CJ Warehouse - China"},
+    shipping:{ar:"7-14 يوم عمل", en:"7-14 business days"}},
+
+  {id:5, cat:"beauty", price:98, icon:"perfume", rating:4.7, sku:"VLK-BE-401",
+    name:{ar:"عطر رجالي فاخر 100مل", en:"Luxury Men's Perfume 100ml"},
+    desc:{ar:"عطر رجالي بتركيبة خشبية دافئة وثبات يدوم طويلاً، مناسب للاستخدام اليومي والمناسبات.", en:"A men's fragrance with a warm woody composition and long-lasting projection, suited for daily wear and occasions."},
+    material:{ar:"زجاجة زجاجية 100مل", en:"100ml glass bottle"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"6-11 يوم عمل", en:"6-11 business days"}},
+  {id:14, cat:"beauty", price:110, icon:"perfume", rating:4.8, sku:"VLK-BE-402",
+    name:{ar:"عطر نسائي فرنسي 90مل", en:"French Women's Perfume 90ml"},
+    desc:{ar:"عطر نسائي بمزيج زهري فواكهي أنيق، مثالي للإطلالة اليومية والسهرات.", en:"A women's fragrance with an elegant floral-fruity blend, perfect for everyday wear and evenings out."},
+    material:{ar:"زجاجة زجاجية 90مل", en:"90ml glass bottle"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"6-11 يوم عمل", en:"6-11 business days"}},
+  {id:15, cat:"beauty", price:85, icon:"serum", rating:4.5, sku:"VLK-BE-403",
+    name:{ar:"سيروم فيتامين سي للوجه", en:"Vitamin C Face Serum"},
+    desc:{ar:"سيروم مركّز بفيتامين سي لتفتيح البشرة وتوحيد لونها مع الاستخدام المنتظم.", en:"A concentrated Vitamin C serum that brightens skin tone and improves evenness with regular use."},
+    material:{ar:"30مل - لجميع أنواع البشرة", en:"30ml - for all skin types"},
+    origin:{ar:"مخزن أمريكا", en:"US Warehouse"},
+    shipping:{ar:"5-9 أيام عمل", en:"5-9 business days"}},
+  {id:16, cat:"beauty", price:35, icon:"lipstick", rating:4.3, sku:"VLK-BE-404",
+    name:{ar:"أحمر شفاه مطفي طويل الثبات", en:"Long-Lasting Matte Lipstick"},
+    desc:{ar:"أحمر شفاه بتركيبة مطفية ناعمة، ألوان غنية وثبات يدوم لساعات طويلة.", en:"A smooth matte lipstick with rich pigmentation and long-wearing color that lasts for hours."},
+    material:{ar:"تركيبة خالية من القسوة على الشفاه", en:"Gentle, non-drying formula"},
+    origin:{ar:"مخزن CJ - الصين", en:"CJ Warehouse - China"},
+    shipping:{ar:"7-14 يوم عمل", en:"7-14 business days"}},
+  {id:17, cat:"beauty", price:60, icon:"hairoil", rating:4.4, sku:"VLK-BE-405",
+    name:{ar:"زيت الأرغان للشعر", en:"Argan Hair Oil"},
+    desc:{ar:"زيت طبيعي مغذٍ للشعر، يقلل التقصف ويمنح لمعاناً صحياً مع الاستخدام المستمر.", en:"A nourishing natural hair oil that reduces breakage and adds healthy shine with continued use."},
+    material:{ar:"50مل - زيت أرغان نقي", en:"50ml - pure argan oil"},
+    origin:{ar:"مخزن أوروبا", en:"EU Warehouse"},
+    shipping:{ar:"6-11 يوم عمل", en:"6-11 business days"}},
+  {id:18, cat:"beauty", price:70, icon:"facecream", rating:4.6, sku:"VLK-BE-406",
+    name:{ar:"كريم ترطيب يومي للوجه", en:"Daily Moisturizing Face Cream"},
+    desc:{ar:"كريم ترطيب خفيف القوام يمتص بسرعة، مناسب للاستخدام اليومي صباحاً ومساءً.", en:"A lightweight, fast-absorbing moisturizer suitable for daily morning and evening use."},
+    material:{ar:"50مل - لجميع أنواع البشرة", en:"50ml - for all skin types"},
+    origin:{ar:"مخزن أمريكا", en:"US Warehouse"},
+    shipping:{ar:"5-9 أيام عمل", en:"5-9 business days"}},
+  {id:19, cat:"beauty", price:95, icon:"palette", rating:4.5, sku:"VLK-BE-407",
+    name:{ar:"باليت ظلال عيون احترافي", en:"Professional Eyeshadow Palette"},
+    desc:{ar:"باليت مكياج بألوان متدرجة عالية التصبغ، مناسب للإطلالات النهارية والسهرات.", en:"A makeup palette with highly pigmented, blendable shades, suited for both day and evening looks."},
+    material:{ar:"12 لون - قوام حريري", en:"12 shades - silky texture"},
+    origin:{ar:"مخزن CJ - الصين", en:"CJ Warehouse - China"},
+    shipping:{ar:"7-14 يوم عمل", en:"7-14 business days"}},
+  {id:18, cat:"electronics", price:150, icon:"headphone", rating:4.5, sku:"VLK-EL-104",
+    name:{ar:"سماعة استوديو احترافية", en:"Professional Studio Headphones"},
+    desc:{ar:"سماعة رأس احترافية بجودة صوت استوديو، مناسبة لمهندسي الصوت وعشاق الموسيقى الجادين.", en:"Professional-grade headphones with studio-quality sound, ideal for audio engineers and serious music enthusiasts."},
+    material:{ar:"معدن + وسائد أذن جلدية", en:"Metal build + leather ear cushions"},
+    origin:{ar:"مخزن أمريكا", en:"US Warehouse"},
+    shipping:{ar:"5-9 أيام عمل", en:"5-9 business days"}},
+];
+
+/* ---------- BACKEND CONNECTION ---------- */
+const API_BASE = '/api';
+
+function apiProductToLocal(p){
+  return {
+    id: p.id, cat: p.cat, price: Number(p.price), icon: p.icon, rating: Number(p.rating || 0), sku: p.sku,
+    isAdminAdded: p.is_admin_added, addedBy: p.added_by,
+    name:{ar:p.name_ar, en:p.name_en},
+    desc:{ar:p.desc_ar, en:p.desc_en},
+    material:{ar:p.material_ar, en:p.material_en},
+    origin:{ar:p.origin_ar, en:p.origin_en},
+    shipping:{ar:p.shipping_ar, en:p.shipping_en},
+  };
+}
+
+let backendAvailable = false;
+
+async function loadProductsFromBackend(){
+  try{
+    const res = await fetch(`${API_BASE}/products`);
+    if(!res.ok) throw new Error('bad status');
+    const rows = await res.json();
+    if(Array.isArray(rows) && rows.length){
+      PRODUCTS = rows.map(apiProductToLocal);
+      backendAvailable = true;
+      renderProducts();
+      renderCatPills();
+    }
+  } catch(err){
+    // Backend not reachable (e.g. previewing this file locally without deploying the
+    // Netlify Functions yet) — silently keep using the bundled demo catalog above.
+    backendAvailable = false;
+    console.warn('Backend unavailable, using local demo catalog:', err.message);
+  }
+}
+
+const CAT_LABEL_KEY = {electronics:"catElectronics", fashion:"catFashion", home:"catHome", beauty:"catBeauty"};
+
+const ICONS = {
+  headphone:'<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/>',
+  watch:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+  jacket:'<path d="M6 4h12l2 5-3 2v9H7v-9L4 9z"/>',
+  sofa:'<path d="M4 12h16v6H4zM4 12V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4M6 18v2M18 18v2"/>',
+  perfume:'<path d="M12 2c2 3 5 5 5 9a5 5 0 0 1-10 0c0-4 3-6 5-9Z"/>',
+  phone:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/>',
+  shoe:'<path d="M3 15h18v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 15c0-4 3-8 7-9l8 4c1 3-1 5-3 5"/>',
+  lamp:'<path d="M12 2l5 8H7zM12 10v6M8 20h8M10 16h4v4h-4z"/>',
+  dress:'<path d="M10 3h4l1 3-1 2v2l3 9H7l3-9V8l-1-2z"/>',
+  bag:'<path d="M6 8h12l1 12H5z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
+  sunglasses:'<circle cx="7" cy="12" r="3"/><circle cx="17" cy="12" r="3"/><path d="M10 12h4M4 11l3-3h0M20 11l-3-3h0"/>',
+  tshirt:'<path d="M8 4L4 7l2.5 2.5L8 8v12h8V8l1.5 1.5L20 7l-4-3-2 2h-4z"/>',
+  jeans:'<path d="M8 3h8l1 18h-4l-1-9-1 9H7z"/>',
+  lipstick:'<rect x="9" y="3" width="6" height="6" rx="1"/><path d="M9 9h6l-1 10a2 2 0 0 1-4 0z"/>',
+  serum:'<rect x="9" y="8" width="6" height="12" rx="2"/><path d="M10 8V5a2 2 0 0 1 4 0v3"/>',
+  hairoil:'<rect x="8" y="6" width="8" height="14" rx="2"/><rect x="10" y="3" width="4" height="3"/>',
+  facecream:'<rect x="6" y="10" width="12" height="9" rx="2"/><rect x="8" y="7" width="8" height="3" rx="1"/>',
+  palette:'<circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1.3"/><circle cx="15" cy="9" r="1.3"/><circle cx="9" cy="15" r="1.3"/><circle cx="15" cy="15" r="1.3"/>'
+};
+
+/* ---------- CURRENCY (prices stored in USD, converted on display) ---------- */
+let currencyState = { code: 'USD', rate: 1.0 };
+const CURRENCY_RATES_FROM_USD = { USD:1.0, SAR:3.75, AED:3.67, EGP:48.50, EUR:0.92, GBP:0.78, IQD:1310, KWD:0.307, JOD:0.709 };
+let ratesAreLive = false;
+
+function formatPrice(priceInUSD){
+  const converted = (priceInUSD * currencyState.rate).toFixed(2);
+  return `${converted} ${currencyState.code}`;
+}
+
+function setCurrency(code){
+  if(!CURRENCY_RATES_FROM_USD[code]) return;
+  currencyState.code = code;
+  currencyState.rate = CURRENCY_RATES_FROM_USD[code];
+  const sel = document.getElementById('currencySelector');
+  if(sel) sel.value = code;
+  renderProducts();
+  renderCartDrawer();
+  if(!document.getElementById('checkoutModal').classList.contains('hidden')) renderCheckout();
+  if(!document.getElementById('productModal').classList.contains('hidden')) renderProductModal();
+}
+
+/* Fetches today's live exchange rates (updated daily by the provider) and refreshes
+   the currently displayed prices. Falls back to the static rates above if offline. */
+function fetchLiveExchangeRates(){
+  fetch('https://open.er-api.com/v6/latest/USD')
+    .then(res => res.json())
+    .then(data => {
+      if(data && data.result === 'success' && data.rates){
+        Object.keys(CURRENCY_RATES_FROM_USD).forEach(code=>{
+          if(data.rates[code]) CURRENCY_RATES_FROM_USD[code] = data.rates[code];
+        });
+        ratesAreLive = true;
+        currencyState.rate = CURRENCY_RATES_FROM_USD[currencyState.code];
+        renderProducts();
+        renderCartDrawer();
+        if(!document.getElementById('checkoutModal').classList.contains('hidden')) renderCheckout();
+        if(!document.getElementById('productModal').classList.contains('hidden')) renderProductModal();
+      }
+    })
+    .catch(()=>{ /* offline or blocked - keep static fallback rates */ });
+}
+
+/* Detects visitor's country via IP and auto-switches currency. Fails silently offline. */
+function detectLocationAndCurrency(){
+  fetch('https://ipapi.co/json/')
+    .then(res => res.json())
+    .then(data => {
+      if(data && data.currency){
+        const code = data.currency.toUpperCase();
+        if(CURRENCY_RATES_FROM_USD[code]) setCurrency(code);
+      }
+    })
+    .catch(()=>{ /* offline or blocked - keep default USD */ });
+}
+
+/* ---------- STATE ---------- */
+let state = {
+  lang: detectLang(),
+  cart: [], // {id, qty}
+  activeCat: "all",
+  checkoutStep: 0, // 0 shipping, 1 payment, 2 review, 3 confirmed
+  shipping: {fullName:"", email:"", phone:"", address:"", city:"", country:""},
+  payment: "card",
+  card: {number:"", expiry:"", cvv:""},
+  orderId: null,
+  activeProduct: null,
+  isAdmin: false,
+  adminUser: null,
+  adminTab: "products"
+};
+
+function detectLang(){
+  const nav = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+  return nav.startsWith("ar") ? "ar" : "en";
+}
+
+function t(key){ return T[state.lang][key]; }
+
+/* ---------- SECURITY: HTML escaping to prevent XSS ---------- */
+/* Any string that came from a form field (admin product form, checkout fields, usernames)
+   must pass through esc() before being inserted via innerHTML/template literals. */
+function esc(str){
+  if(str === null || str === undefined) return '';
+  return String(str)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'",'&#39;');
+}
+
+/* Password hashing and login rate-limiting now happen entirely on the server —
+   see backend/lib/auth.js and backend/netlify/functions/admin-login.js. Nothing
+   security-sensitive is computed in this file anymore. */
+
+/* ---------- RENDER: SHELL ---------- */
+function applyLangShell(){
+  document.getElementById('htmlRoot').setAttribute('lang', state.lang);
+  document.getElementById('htmlRoot').setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
+  document.querySelectorAll('#langSwitch button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang === state.lang);
+  });
+  const navEl = document.getElementById('navlinks');
+  navEl.innerHTML = t('nav').map(n=>`<button>${n}</button>`).join('');
+
+  document.getElementById('heroEyebrow').textContent = t('heroEyebrow');
+  document.getElementById('heroTitle').innerHTML = t('heroTitle1') + ' <span>' + t('heroTitle2') + '</span>';
+  document.getElementById('heroDesc').textContent = t('heroDesc');
+  document.getElementById('heroBtn').textContent = t('heroBtn');
+  document.getElementById('prodTitle').textContent = t('prodTitle');
+  document.getElementById('cartHeadTitle').textContent = t('cartTitle');
+  document.getElementById('footerText').textContent = t('footer');
+
+  renderCatPills();
+  renderProducts();
+  renderCartDrawer();
+  if(!document.getElementById('checkoutModal').classList.contains('hidden')) renderCheckout();
+  if(!document.getElementById('productModal').classList.contains('hidden')) renderProductModal();
+  if(!document.getElementById('adminPanelModal').classList.contains('hidden')) renderAdminPanel();
+}
+
+function renderCatPills(){
+  const cats = [
+    {key:"all", label:t('catAll')},
+    {key:"electronics", label:t('catElectronics')},
+    {key:"fashion", label:t('catFashion')},
+    {key:"home", label:t('catHome')},
+    {key:"beauty", label:t('catBeauty')},
+  ];
+  document.getElementById('catPills').innerHTML = cats.map(c=>
+    `<button class="cat-pill ${state.activeCat===c.key?'active':''}" data-cat="${c.key}">${c.label}</button>`
+  ).join('');
+  document.querySelectorAll('.cat-pill').forEach(el=>{
+    el.onclick = ()=>{ state.activeCat = el.dataset.cat; renderCatPills(); renderProducts(); };
+  });
+}
+
+function renderProducts(){
+  const list = PRODUCTS.filter(p => state.activeCat === "all" || p.cat === state.activeCat);
+  document.getElementById('prodGrid').innerHTML = list.map(p=>`
+    <div class="prod-card" data-id="${p.id}">
+      <div class="prod-img"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICONS[p.icon]}</svg></div>
+      <div class="prod-info">
+        <h4>${esc(p.name[state.lang])}</h4>
+        <div class="prod-price">${formatPrice(p.price)}</div>
+        <button class="add-btn" data-id="${p.id}">${t('add')}</button>
+      </div>
+    </div>
+  `).join('');
+  document.querySelectorAll('.prod-card').forEach(card=>{
+    card.addEventListener('click', (e)=>{
+      if(e.target.closest('.add-btn')) return;
+      openProductModal(parseInt(card.dataset.id));
+    });
+  });
+  document.querySelectorAll('.add-btn').forEach(btn=>{
+    btn.onclick = (e)=>{
+      e.stopPropagation();
+      addToCart(parseInt(btn.dataset.id));
+      btn.textContent = t('added');
+      btn.classList.add('added');
+      setTimeout(()=>{ btn.textContent = t('add'); btn.classList.remove('added'); }, 900);
+    };
+  });
+}
+
+/* ---------- PRODUCT DETAIL MODAL ---------- */
+function starString(rating){
+  const full = Math.round(rating);
+  return '★'.repeat(full) + '☆'.repeat(5-full);
+}
+
+function openProductModal(id){
+  state.activeProduct = {id, qty:1};
+  document.getElementById('productModal').classList.remove('hidden');
+  renderProductModal();
+}
+function closeProductModal(){
+  document.getElementById('productModal').classList.add('hidden');
+  state.activeProduct = null;
+}
+
+function renderProductModal(){
+  if(!state.activeProduct) return;
+  const p = PRODUCTS.find(pp=>pp.id===state.activeProduct.id);
+  if(!p) return;
+  const box = document.getElementById('productBox');
+  box.innerHTML = `
+    <button class="close-x-abs" id="closeProductModal">✕</button>
+    <div class="pd-top">
+      <div class="pd-img"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICONS[p.icon]}</svg></div>
+      <div class="pd-info">
+        <div class="pd-cat-tag">${t(CAT_LABEL_KEY[p.cat])}</div>
+        <div class="pd-name">${esc(p.name[state.lang])}</div>
+        <div class="pd-rating"><span class="stars">${starString(p.rating)}</span><span>${p.rating} · SKU ${p.sku}</span></div>
+        <div class="pd-price">${formatPrice(p.price)}</div>
+        <div class="pd-qty-row">
+          <span style="font-size:12px;color:var(--lg);">${t('quantity')}</span>
+          <div class="qty-row">
+            <button id="pdDec">−</button>
+            <span id="pdQtyVal">${state.activeProduct.qty}</span>
+            <button id="pdInc">+</button>
+          </div>
+        </div>
+        <button class="btn-primary" id="pdAddBtn" style="width:100%;margin-top:10px;">${t('add')}</button>
+      </div>
+    </div>
+    <div class="pd-section-title">${t('description')}</div>
+    <p class="pd-desc">${esc(p.desc[state.lang])}</p>
+    <div class="pd-section-title">${t('specifications')}</div>
+    <table class="pd-specs">
+      <tr><td>${t('category')}</td><td>${t(CAT_LABEL_KEY[p.cat])}</td></tr>
+      <tr><td>${t('material')}</td><td>${esc(p.material[state.lang])}</td></tr>
+      <tr><td>${t('warehouse')}</td><td>${esc(p.origin[state.lang])}</td></tr>
+      <tr><td>${t('shippingTime')}</td><td>${esc(p.shipping[state.lang])}</td></tr>
+      <tr><td>${t('sku')}</td><td>${esc(p.sku)}</td></tr>
+      <tr><td>${t('rating')}</td><td>${p.rating} / 5</td></tr>
+    </table>
+  `;
+  document.getElementById('closeProductModal').onclick = closeProductModal;
+  document.getElementById('pdInc').onclick = ()=>{ state.activeProduct.qty++; document.getElementById('pdQtyVal').textContent = state.activeProduct.qty; };
+  document.getElementById('pdDec').onclick = ()=>{
+    if(state.activeProduct.qty > 1) state.activeProduct.qty--;
+    document.getElementById('pdQtyVal').textContent = state.activeProduct.qty;
+  };
+  document.getElementById('pdAddBtn').onclick = ()=>{
+    for(let i=0;i<state.activeProduct.qty;i++) addToCart(p.id);
+    const btn = document.getElementById('pdAddBtn');
+    btn.textContent = t('added');
+    setTimeout(()=>{ if(document.getElementById('pdAddBtn')) document.getElementById('pdAddBtn').textContent = t('add'); }, 900);
+  };
+}
+
+/* ---------- CART LOGIC ---------- */
+function addToCart(id){
+  const existing = state.cart.find(c=>c.id===id);
+  if(existing) existing.qty++;
+  else state.cart.push({id, qty:1});
+  updateCartCount();
+  renderCartDrawer();
+}
+function changeQty(id, delta){
+  const item = state.cart.find(c=>c.id===id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0) state.cart = state.cart.filter(c=>c.id!==id);
+  updateCartCount();
+  renderCartDrawer();
+}
+function removeFromCart(id){
+  state.cart = state.cart.filter(c=>c.id!==id);
+  updateCartCount();
+  renderCartDrawer();
+}
+function cartTotal(){
+  return state.cart.reduce((sum,c)=>{
+    const p = PRODUCTS.find(pp=>pp.id===c.id);
+    return sum + (p ? p.price*c.qty : 0);
+  }, 0);
+}
+function cartCountTotal(){
+  return state.cart.reduce((s,c)=>s+c.qty,0);
+}
+function updateCartCount(){
+  document.getElementById('cartCount').textContent = cartCountTotal();
+}
+
+function renderCartDrawer(){
+  const body = document.getElementById('cartBody');
+  if(state.cart.length === 0){
+    body.innerHTML = `<div class="empty-cart">${t('cartEmpty')}</div>`;
+    document.getElementById('cartFoot').innerHTML = '';
+    return;
+  }
+  body.innerHTML = state.cart.map(c=>{
+    const p = PRODUCTS.find(pp=>pp.id===c.id);
+    return `
+    <div class="cart-item">
+      <div class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICONS[p.icon]}</svg></div>
+      <div class="info">
+        <h5>${esc(p.name[state.lang])}</h5>
+        <div class="qty-row">
+          <button data-act="dec" data-id="${p.id}">−</button>
+          <span>${c.qty}</span>
+          <button data-act="inc" data-id="${p.id}">+</button>
+        </div>
+        <button class="remove-btn" data-act="rm" data-id="${p.id}">${t('remove')}</button>
+      </div>
+      <div class="price">${formatPrice(p.price*c.qty)}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('cartFoot').innerHTML = `
+    <div class="subtotal-row"><span>${t('subtotal')}</span><strong>${formatPrice(cartTotal())}</strong></div>
+    <button class="btn-primary" style="width:100%;" id="goCheckout">${t('checkout')}</button>
+  `;
+
+  body.querySelectorAll('[data-act="inc"]').forEach(b=>b.onclick=()=>changeQty(parseInt(b.dataset.id),1));
+  body.querySelectorAll('[data-act="dec"]').forEach(b=>b.onclick=()=>changeQty(parseInt(b.dataset.id),-1));
+  body.querySelectorAll('[data-act="rm"]').forEach(b=>b.onclick=()=>removeFromCart(parseInt(b.dataset.id)));
+  const goBtn = document.getElementById('goCheckout');
+  if(goBtn) goBtn.onclick = ()=>{ closeCartDrawer(); openCheckout(); };
+}
+
+/* ---------- CART DRAWER OPEN/CLOSE ---------- */
+function openCartDrawer(){
+  document.getElementById('cartOverlay').classList.remove('hidden');
+  document.getElementById('cartDrawer').classList.remove('hidden');
+}
+function closeCartDrawer(){
+  document.getElementById('cartOverlay').classList.add('hidden');
+  document.getElementById('cartDrawer').classList.add('hidden');
+}
+
+/* ---------- CHECKOUT FLOW ---------- */
+function openCheckout(){
+  if(state.cart.length === 0) return;
+  state.checkoutStep = 0;
+  document.getElementById('checkoutModal').classList.remove('hidden');
+  renderCheckout();
+}
+function closeCheckout(){
+  document.getElementById('checkoutModal').classList.add('hidden');
+}
+
+function validateShipping(){
+  const f = state.shipping;
+  const errs = {};
+  ['fullName','email','phone','address','city','country'].forEach(k=>{
+    if(!f[k] || !f[k].trim()) errs[k] = t('reqField');
+  });
+  if(f.email && !errs.email){
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!re.test(f.email)) errs.email = t('invalidEmail');
+  }
+  if(f.phone && !errs.phone){
+    const digits = f.phone.replace(/\D/g,'');
+    if(digits.length < 8) errs.phone = t('invalidPhone');
+  }
+  return errs;
+}
+function validateCard(){
+  const c = state.card;
+  const errs = {};
+  const num = c.number.replace(/\s/g,'');
+  if(!/^\d{16}$/.test(num)) errs.number = t('invalidCard');
+  if(!/^(0[1-9]|1[0-2])\/\d{2}$/.test(c.expiry)) errs.expiry = t('invalidExpiry');
+  if(!/^\d{3,4}$/.test(c.cvv)) errs.cvv = t('invalidCvv');
+  return errs;
+}
+
+function renderCheckout(){
+  const box = document.getElementById('checkoutBox');
+  const steps = [t('stepShip'), t('stepPay'), t('stepReview')];
+  const trackHtml = `<div class="steps-track">${steps.map((s,i)=>`<div class="${i<=state.checkoutStep?'done':''}"></div>`).join('')}</div>`;
+
+  if(state.checkoutStep === 3){
+    box.innerHTML = `
+      <div class="confirm-box">
+        <div class="confirm-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>${t('confirmTitle')}</h3>
+        <p class="modal-sub">${t('confirmDesc')}</p>
+        <div class="order-id">${t('orderNum')}: ${state.orderId}</div>
+        <button class="btn-primary" style="width:100%;" id="backHomeBtn">${t('backHome')}</button>
+      </div>`;
+    document.getElementById('backHomeBtn').onclick = ()=>{
+      closeCheckout();
+      state.cart = [];
+      updateCartCount();
+      state.checkoutStep = 0;
+      state.shipping = {fullName:"", email:"", phone:"", address:"", city:"", country:""};
+    };
+    return;
+  }
+
+  if(state.checkoutStep === 0){
+    const f = state.shipping;
+    box.innerHTML = `
+      <h3>${t('stepShip')}</h3>
+      <p class="modal-sub">${t('checkout')}</p>
+      ${trackHtml}
+      <div class="field" id="f-fullName"><label>${t('fullName')}</label><input id="in-fullName" value="${esc(f.fullName)}"><div class="err-text"></div></div>
+      <div class="field" id="f-email"><label>${t('email')}</label><input id="in-email" value="${esc(f.email)}"><div class="err-text"></div></div>
+      <div class="field" id="f-phone"><label>${t('phone')}</label><input id="in-phone" value="${esc(f.phone)}"><div class="err-text"></div></div>
+      <div class="field" id="f-address"><label>${t('address')}</label><input id="in-address" value="${esc(f.address)}"><div class="err-text"></div></div>
+      <div class="field-row">
+        <div class="field" id="f-city"><label>${t('city')}</label><input id="in-city" value="${esc(f.city)}"><div class="err-text"></div></div>
+        <div class="field" id="f-country"><label>${t('country')}</label><input id="in-country" value="${esc(f.country)}"><div class="err-text"></div></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="cancelBtn">${t('continueShopping')}</button>
+        <button class="btn-primary flex" id="nextBtn1">${t('next')}</button>
+      </div>
+    `;
+    document.getElementById('cancelBtn').onclick = closeCheckout;
+    document.getElementById('nextBtn1').onclick = ()=>{
+      ['fullName','email','phone','address','city','country'].forEach(k=>{
+        state.shipping[k] = document.getElementById('in-'+k).value;
+      });
+      const errs = validateShipping();
+      document.querySelectorAll('.field').forEach(el=>el.classList.remove('error'));
+      Object.keys(errs).forEach(k=>{
+        const el = document.getElementById('f-'+k);
+        el.classList.add('error');
+        el.querySelector('.err-text').textContent = errs[k];
+      });
+      if(Object.keys(errs).length === 0){
+        state.checkoutStep = 1;
+        renderCheckout();
+      }
+    };
+    return;
+  }
+
+  if(state.checkoutStep === 1){
+    const options = [
+      {key:'card', label:t('payCard'), desc:t('payCardDesc')},
+      {key:'paypal', label:t('payPaypal'), desc:t('payPaypalDesc')},
+      {key:'moyasar', label:t('payMoyasar'), desc:t('payMoyasarDesc')},
+      {key:'bnpl', label:t('payBnpl'), desc:t('payBnplDesc')},
+      {key:'cod', label:t('payCod'), desc:t('payCodDesc')},
+    ];
+    box.innerHTML = `
+      <h3>${t('stepPay')}</h3>
+      <p class="modal-sub">${t('checkout')}</p>
+      ${trackHtml}
+      ${options.map(o=>`
+        <label class="pay-option ${state.payment===o.key?'active':''}" data-key="${o.key}">
+          <input type="radio" name="pay" ${state.payment===o.key?'checked':''}>
+          <div class="pinfo"><strong>${o.label}</strong><span>${o.desc}</span></div>
+        </label>
+      `).join('')}
+      <div id="cardFields"></div>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="backBtn1">${t('back')}</button>
+        <button class="btn-primary flex" id="nextBtn2">${t('next')}</button>
+      </div>
+    `;
+    function renderCardFields(){
+      const wrap = document.getElementById('cardFields');
+      if(state.payment !== 'card'){ wrap.innerHTML=''; return; }
+      const c = state.card;
+      wrap.innerHTML = `
+        <div class="field" id="f-number"><label>${t('cardNumber')}</label><input id="in-number" maxlength="19" placeholder="1234 5678 9012 3456" value="${esc(c.number)}" autocomplete="cc-number"><div class="err-text"></div></div>
+        <div class="field-row">
+          <div class="field" id="f-expiry"><label>${t('expiry')}</label><input id="in-expiry" maxlength="5" placeholder="MM/YY" value="${esc(c.expiry)}" autocomplete="cc-exp"><div class="err-text"></div></div>
+          <div class="field" id="f-cvv"><label>${t('cvv')}</label><input id="in-cvv" maxlength="4" placeholder="123" value="${esc(c.cvv)}" autocomplete="cc-csc"><div class="err-text"></div></div>
+        </div>
+      `;
+    }
+    renderCardFields();
+    box.querySelectorAll('.pay-option').forEach(el=>{
+      el.onclick = ()=>{ state.payment = el.dataset.key; renderCheckout(); };
+    });
+    document.getElementById('backBtn1').onclick = ()=>{ state.checkoutStep = 0; renderCheckout(); };
+    document.getElementById('nextBtn2').onclick = ()=>{
+      if(state.payment === 'card'){
+        state.card.number = document.getElementById('in-number').value;
+        state.card.expiry = document.getElementById('in-expiry').value;
+        state.card.cvv = document.getElementById('in-cvv').value;
+        const errs = validateCard();
+        document.querySelectorAll('.field').forEach(el=>el.classList.remove('error'));
+        Object.keys(errs).forEach(k=>{
+          const el = document.getElementById('f-'+k);
+          el.classList.add('error');
+          el.querySelector('.err-text').textContent = errs[k];
+        });
+        if(Object.keys(errs).length > 0) return;
+      }
+      state.checkoutStep = 2;
+      renderCheckout();
+    };
+    return;
+  }
+
+  if(state.checkoutStep === 2){
+    const shippingFee = 15;
+    const total = cartTotal() + shippingFee;
+    const payLabelMap = {card:t('payCard'), paypal:t('payPaypal'), moyasar:t('payMoyasar'), bnpl:t('payBnpl'), cod:t('payCod')};
+    box.innerHTML = `
+      <h3>${t('stepReview')}</h3>
+      <p class="modal-sub">${t('checkout')}</p>
+      ${trackHtml}
+      <div class="review-row"><span>${t('fullName')}</span><span>${esc(state.shipping.fullName)}</span></div>
+      <div class="review-row"><span>${t('address')}</span><span>${esc(state.shipping.address)}, ${esc(state.shipping.city)}</span></div>
+      <div class="review-row"><span>${t('stepPay')}</span><span>${payLabelMap[state.payment]}</span></div>
+      <div class="review-row"><span>${t('orderSummary')}</span><span>${cartCountTotal()} ${state.lang==='ar'?'قطعة':'items'}</span></div>
+      <div class="review-row"><span>${t('subtotal')}</span><span>${formatPrice(cartTotal())}</span></div>
+      <div class="review-row"><span>${t('shippingFee')}</span><span>${formatPrice(shippingFee)}</span></div>
+      <div class="review-row total"><span>${t('total')}</span><strong>${formatPrice(total)}</strong></div>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="backBtn2">${t('back')}</button>
+        <button class="btn-primary flex" id="placeOrderBtn">${t('placeOrder')}</button>
+      </div>
+    `;
+    document.getElementById('backBtn2').onclick = ()=>{ state.checkoutStep = 1; renderCheckout(); };
+    document.getElementById('placeOrderBtn').onclick = async ()=>{
+      const btn = document.getElementById('placeOrderBtn');
+      btn.disabled = true;
+      const orderPayload = {
+        totalUSD: total,
+        currency: currencyState.code,
+        displayTotal: formatPrice(total),
+        payment: state.payment,
+        itemCount: cartCountTotal()
+      };
+      try{
+        const res = await fetch(`${API_BASE}/orders`, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(orderPayload)
+        });
+        const data = await res.json();
+        state.orderId = (res.ok && data.orderId) ? data.orderId : ('VLK-' + Math.floor(100000 + Math.random()*899999));
+      } catch(e){
+        // offline fallback so the customer still sees a confirmation; the order just
+        // won't appear in the admin Sales tab until the backend is reachable again.
+        state.orderId = 'VLK-' + Math.floor(100000 + Math.random()*899999);
+      }
+      state.checkoutStep = 3;
+      renderCheckout();
+    };
+    return;
+  }
+}
+
+/* ---------- ADMIN PANEL (hidden from customers, no visible UI entry) ---------- */
+/* Admin credentials NEVER live in this file anymore. Login is verified entirely on the
+   server (see /netlify/functions/admin-login.js). This page only ever receives an
+   HttpOnly session cookie it cannot read or forge — see backend/README-DEPLOY.md. */
+let ORDERS_LOG = []; // local cache for rendering the Sales & Balance tab (populated from /api/orders)
+let TEAM_LIST = []; // local cache for rendering the Team tab (populated from /api/team)
+const ADMIN_CATS = ["electronics","fashion","home","beauty"];
+
+function openAdminLogin(){
+  if(state.isAdmin){ openAdminPanel(); return; }
+  document.getElementById('adminLoginModal').classList.remove('hidden');
+  renderAdminLogin(false);
+}
+function closeAdminLogin(){ document.getElementById('adminLoginModal').classList.add('hidden'); }
+
+function renderAdminLogin(showError, serverMsg){
+  const box = document.getElementById('adminLoginBox');
+  box.innerHTML = `
+    <h3>${t('adminLoginTitle')}</h3>
+    <div style="height:14px;"></div>
+    ${!backendAvailable ? `<div class="admin-note" style="color:var(--err);border-color:var(--err);">${state.lang==='ar' ? 'الخادم الخلفي غير متصل — لوحة الأدمن معطّلة حتى يتم نشره.' : 'Backend not connected — admin panel is disabled until it is deployed.'}</div>` : ''}
+    <div class="field" id="f-adminUser"><label>${t('adminUsernameLabel')}</label><input id="in-adminUser" autocomplete="username"></div>
+    <div class="field" id="f-adminPass"><label>${t('adminPasswordLabel')}</label><input type="password" id="in-adminPass" autocomplete="current-password"><div class="err-text">${serverMsg || t('adminWrongPassword')}</div></div>
+    <div class="modal-actions">
+      <button class="btn-ghost" id="adminLoginCancel">${t('back')}</button>
+      <button class="btn-primary flex" id="adminLoginSubmit" ${!backendAvailable?'disabled':''}>${t('adminLoginBtn')}</button>
+    </div>
+  `;
+  if(showError){ document.getElementById('f-adminUser').classList.add('error'); document.getElementById('f-adminPass').classList.add('error'); }
+
+  document.getElementById('adminLoginCancel').onclick = closeAdminLogin;
+  document.getElementById('adminLoginSubmit').onclick = async ()=>{
+    const btn = document.getElementById('adminLoginSubmit');
+    const uname = document.getElementById('in-adminUser').value.trim();
+    const pass = document.getElementById('in-adminPass').value;
+    if(!uname || !pass) { renderAdminLogin(true); return; }
+    btn.disabled = true;
+    try{
+      const res = await fetch(`${API_BASE}/admin-login`, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        credentials: 'same-origin', // send/receive the HttpOnly session cookie
+        body: JSON.stringify({ username: uname, password: pass })
+      });
+      const data = await res.json();
+      if(res.ok && data.ok){
+        state.isAdmin = true;
+        state.adminUser = {
+          username: data.account.username,
+          role: data.account.role,
+          name: {ar:data.account.name_ar, en:data.account.name_en}
+        };
+        closeAdminLogin();
+        openAdminPanel();
+      } else if(res.status === 429){
+        const secsLeft = data.lockedUntil ? Math.max(0, Math.ceil((new Date(data.lockedUntil)-Date.now())/1000)) : 60;
+        renderAdminLogin(true, state.lang==='ar' ? `محاولات كثيرة، انتظر ${secsLeft} ث` : `Too many attempts, wait ${secsLeft}s`);
+      } else {
+        renderAdminLogin(true);
+      }
+    } catch(err){
+      renderAdminLogin(true, state.lang==='ar' ? 'تعذّر الاتصال بالخادم' : 'Could not reach the server');
+    }
+  };
+  document.getElementById('in-adminPass').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter') document.getElementById('adminLoginSubmit').click();
+  });
+}
+
+async function openAdminPanel(){
+  document.getElementById('adminPanelModal').classList.remove('hidden');
+  renderAdminPanel();
+  await refreshOrdersFromBackend();
+  if(state.adminUser && state.adminUser.role === 'owner') await refreshTeamFromBackend();
+  renderAdminPanel();
+}
+function closeAdminPanel(){ document.getElementById('adminPanelModal').classList.add('hidden'); }
+
+async function adminLogout(){
+  try{ await fetch(`${API_BASE}/admin-logout`, {method:'POST', credentials:'same-origin'}); } catch(e){}
+  state.isAdmin = false;
+  state.adminUser = null;
+  state.adminTab = 'products';
+  closeAdminPanel();
+}
+
+async function refreshOrdersFromBackend(){
+  if(!backendAvailable) return;
+  try{
+    const res = await fetch(`${API_BASE}/orders`, { credentials: 'same-origin' });
+    if(res.ok){
+      const rows = await res.json();
+      ORDERS_LOG = rows.map(o=>({
+        id: o.id, totalUSD: Number(o.total_usd), currency: o.currency,
+        displayTotal: o.display_total, payment: o.payment, itemCount: o.item_count,
+        timestamp: o.created_at
+      }));
+    }
+  } catch(e){ /* keep previous local cache */ }
+}
+
+async function refreshTeamFromBackend(){
+  if(!backendAvailable) return;
+  try{
+    const res = await fetch(`${API_BASE}/team`, { credentials: 'same-origin' });
+    if(res.ok) TEAM_LIST = await res.json();
+  } catch(e){ /* keep previous local cache */ }
+}
+
+function renderAdminPanel(successMsg, teamMsg, accountMsg){
+  const box = document.getElementById('adminPanelBox');
+  const adminAdded = PRODUCTS.filter(p=>p.isAdminAdded);
+  const me = state.adminUser;
+  const isOwner = me && me.role === 'owner';
+  if(state.adminTab === 'team' && !isOwner) state.adminTab = 'products';
+
+  const tabsHtml = `
+    <div class="admin-tabs">
+      <button class="admin-tab-btn ${state.adminTab==='products'?'active':''}" data-tab="products">${t('adminPanelTitle')}</button>
+      <button class="admin-tab-btn ${state.adminTab==='sales'?'active':''}" data-tab="sales">${t('salesTabTitle')}</button>
+      ${isOwner ? `<button class="admin-tab-btn ${state.adminTab==='team'?'active':''}" data-tab="team">${t('manageTeamTitle')}</button>` : ''}
+      <button class="admin-tab-btn ${state.adminTab==='account'?'active':''}" data-tab="account">${t('accountTabTitle')}</button>
+    </div>
+  `;
+
+  let contentHtml = '';
+
+  if(state.adminTab === 'products'){
+    contentHtml = `
+      <div class="admin-note">${t('adminSessionNote')}</div>
+      ${successMsg ? `<div class="admin-success">${t('adminSuccessMsg')}</div>` : ''}
+      <div class="field-row">
+        <div class="field" id="f-apNameAr"><label>${t('productNameAr')}</label><input id="in-apNameAr"><div class="err-text">${t('reqFieldShort')}</div></div>
+        <div class="field" id="f-apNameEn"><label>${t('productNameEn')}</label><input id="in-apNameEn"><div class="err-text">${t('reqFieldShort')}</div></div>
+      </div>
+      <div class="field-row">
+        <div class="field" id="f-apDescAr"><label>${t('productDescAr')}</label><input id="in-apDescAr"></div>
+        <div class="field" id="f-apDescEn"><label>${t('productDescEn')}</label><input id="in-apDescEn"></div>
+      </div>
+      <div class="field-row">
+        <div class="field" id="f-apPrice"><label>${t('productPrice')}</label><input id="in-apPrice" type="number" min="0" step="0.01"><div class="err-text">${t('reqFieldShort')}</div></div>
+        <div class="field"><label>${t('productCategory')}</label>
+          <select id="in-apCat">${ADMIN_CATS.map(c=>`<option value="${c}">${t(CAT_LABEL_KEY[c])}</option>`).join('')}</select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>${t('productIcon')}</label>
+          <select id="in-apIcon">${Object.keys(ICONS).map(k=>`<option value="${k}">${k}</option>`).join('')}</select>
+        </div>
+        <div class="field" id="f-apMaterial"><label>${t('materialField')}</label><input id="in-apMaterial"></div>
+      </div>
+      <div class="field-row">
+        <div class="field" id="f-apCompany"><label>${t('supplierCompany')}</label><input id="in-apCompany"><div class="err-text">${t('reqFieldShort')}</div></div>
+        <div class="field" id="f-apCountry"><label>${t('supplierCountry')}</label><input id="in-apCountry"><div class="err-text">${t('reqFieldShort')}</div></div>
+      </div>
+      <div class="field" id="f-apShipping"><label>${t('shippingTimeField')}</label><input id="in-apShipping" placeholder="7-14"></div>
+      <button class="btn-primary" style="width:100%;" id="apSubmitBtn">${t('addProductBtn')}</button>
+
+      <div style="height:22px;"></div>
+      <h3 style="font-size:14px;">${t('adminProductsListTitle')}</h3>
+      <div class="admin-list">
+        ${adminAdded.length === 0 ? `<div class="admin-empty">${t('adminNoProducts')}</div>` :
+          adminAdded.map(p=>`
+            <div class="admin-list-item">
+              <span>${esc(p.name[state.lang])} — ${formatPrice(p.price)} <em>(${t('addedByLabel')}: ${esc(p.addedBy || '-')})</em></span>
+              <button class="admin-del-btn" data-id="${p.id}">${t('deleteBtn')}</button>
+            </div>
+          `).join('')}
+      </div>
+    `;
+  } else if(state.adminTab === 'sales'){
+    const orderCount = ORDERS_LOG.length;
+    const totalUSD = ORDERS_LOG.reduce((s,o)=>s+o.totalUSD,0);
+    const avgUSD = orderCount ? (totalUSD/orderCount) : 0;
+    const byMethod = {};
+    ORDERS_LOG.forEach(o=>{ byMethod[o.payment] = (byMethod[o.payment]||0) + o.totalUSD; });
+    const payLabelMap = {card:t('payCard'), paypal:t('payPaypal'), moyasar:t('payMoyasar'), bnpl:t('payBnpl'), cod:t('payCod')};
+
+    contentHtml = `
+      <div class="sales-cards">
+        <div class="sales-card"><div class="val">${formatPrice(totalUSD)}</div><div class="lbl">${t('totalRevenue')}</div></div>
+        <div class="sales-card"><div class="val">${orderCount}</div><div class="lbl">${t('totalOrders')}</div></div>
+        <div class="sales-card"><div class="val">${formatPrice(avgUSD)}</div><div class="lbl">${t('avgOrder')}</div></div>
+      </div>
+
+      ${orderCount === 0 ? `<div class="admin-empty">${t('noOrdersYet')}</div>` : `
+        <h3 style="font-size:13px;">${t('byPaymentMethod')}</h3>
+        <div class="admin-list">
+          ${Object.keys(byMethod).map(k=>`
+            <div class="admin-list-item"><span>${payLabelMap[k]||k}</span><span>${formatPrice(byMethod[k])}</span></div>
+          `).join('')}
+        </div>
+        <h3 style="font-size:13px;">${t('recentOrders')}</h3>
+        ${ORDERS_LOG.slice(0,10).map(o=>`
+          <div class="order-row"><span class="oid">${esc(o.id)}</span><span>${esc(o.displayTotal)} · ${payLabelMap[o.payment]||esc(o.payment)}</span></div>
+        `).join('')}
+      `}
+
+      <div style="height:16px;"></div>
+      <div class="admin-note"><strong>${t('withdrawalInfoTitle')}</strong><br>${t('withdrawalInfoBody')}</div>
+    `;
+  } else if(state.adminTab === 'team' && isOwner){
+    contentHtml = `
+      ${teamMsg==='exists' ? `<div class="admin-note" style="color:var(--err);border-color:var(--err);">${t('usernameTaken')}</div>` : ''}
+      ${teamMsg===true ? `<div class="admin-success">${t('accountAdded')}</div>` : ''}
+      <div class="field-row">
+        <div class="field" id="f-newUser"><label>${t('newUsername')}</label><input id="in-newUser"><div class="err-text">${t('reqFieldShort')}</div></div>
+        <div class="field" id="f-newPass"><label>${t('newPassword')}</label><input id="in-newPass"><div class="err-text">${t('reqFieldShort')}</div></div>
+      </div>
+      <button class="btn-ghost" style="width:100%;" id="addTeamBtn">${t('addAccountBtn')}</button>
+      <div style="height:14px;"></div>
+      <h3 style="font-size:13px;">${t('teamListTitle')}</h3>
+      <div class="admin-list">
+        ${TEAM_LIST.map(a=>`
+          <div class="admin-list-item">
+            <span>${esc(a.username)} — ${t(a.role==='owner'?'roleOwner':'roleAssistant')}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="admin-note">${t('teamNote')}</div>
+    `;
+  } else if(state.adminTab === 'account'){
+    contentHtml = `
+      ${accountMsg==='wrongpass' ? `<div class="admin-note" style="color:var(--err);border-color:var(--err);">${t('wrongCurrentPassword')}</div>` : ''}
+      ${accountMsg==='taken' ? `<div class="admin-note" style="color:var(--err);border-color:var(--err);">${t('usernameTaken')}</div>` : ''}
+      ${accountMsg===true ? `<div class="admin-success">${t('accountUpdated')}</div>` : ''}
+      <div class="field" id="f-accCurPass"><label>${t('currentPasswordLabel')}</label><input type="password" id="in-accCurPass" autocomplete="current-password"><div class="err-text">${t('reqFieldShort')}</div></div>
+      <div class="field" id="f-accNewUser"><label>${t('newUsernameOptional')}</label><input id="in-accNewUser" autocomplete="username"></div>
+      <div class="field" id="f-accNewPass"><label>${t('newPasswordOptional')}</label><input type="password" id="in-accNewPass" autocomplete="new-password"><div class="err-text">${t('passwordTooShort')}</div></div>
+      <button class="btn-primary" style="width:100%;" id="accSaveBtn">${t('saveAccountBtn')}</button>
+      <div style="height:14px;"></div>
+      <div class="admin-note">${t('accountNote')}</div>
+    `;
+  }
+
+  box.innerHTML = `
+    <button class="close-x-abs" id="closeAdminPanel">✕</button>
+    <div class="admin-welcome">${t('welcomeAdmin')}, <strong>${me.name[state.lang]}</strong> <span class="role-badge">${t(me.role==='owner'?'roleOwner':'roleAssistant')}</span></div>
+    ${tabsHtml}
+    ${contentHtml}
+    <div class="modal-actions">
+      <button class="btn-ghost" id="adminLogoutBtn2">${t('adminLogoutBtn')}</button>
+    </div>
+  `;
+
+  document.getElementById('closeAdminPanel').onclick = closeAdminPanel;
+  document.getElementById('adminLogoutBtn2').onclick = adminLogout;
+  document.querySelectorAll('.admin-tab-btn').forEach(btn=>{
+    btn.onclick = async ()=>{
+      state.adminTab = btn.dataset.tab;
+      if(state.adminTab === 'team') await refreshTeamFromBackend();
+      if(state.adminTab === 'sales') await refreshOrdersFromBackend();
+      renderAdminPanel();
+    };
+  });
+  document.querySelectorAll('.admin-del-btn').forEach(btn=>{
+    btn.onclick = async ()=>{
+      const id = parseInt(btn.dataset.id);
+      btn.disabled = true;
+      try{
+        const res = await fetch(`${API_BASE}/products?id=${id}`, { method:'DELETE', credentials:'same-origin' });
+        if(res.ok){
+          const idx = PRODUCTS.findIndex(p=>p.id===id);
+          if(idx > -1) PRODUCTS.splice(idx,1);
+          renderProducts();
+          renderAdminPanel();
+        } else if(res.status === 401){
+          state.isAdmin = false; state.adminUser = null; closeAdminPanel(); openAdminLogin();
+        }
+      } catch(e){ btn.disabled = false; }
+    };
+  });
+  if(isOwner && state.adminTab === 'team'){
+    document.getElementById('addTeamBtn').onclick = async ()=>{
+      const uname = document.getElementById('in-newUser').value.trim();
+      const pass = document.getElementById('in-newPass').value.trim();
+      document.querySelectorAll('.field').forEach(el=>el.classList.remove('error'));
+      if(!uname || !pass){
+        if(!uname) document.getElementById('f-newUser').classList.add('error');
+        if(!pass) document.getElementById('f-newPass').classList.add('error');
+        return;
+      }
+      if(pass.length < 8){
+        document.getElementById('f-newPass').classList.add('error');
+        document.getElementById('f-newPass').querySelector('.err-text').textContent =
+          state.lang==='ar' ? 'كلمة المرور يجب ألا تقل عن 8 أحرف' : 'Password must be at least 8 characters';
+        return;
+      }
+      if(TEAM_LIST.find(a=>a.username === uname)){
+        renderAdminPanel(false, 'exists');
+        return;
+      }
+      try{
+        const res = await fetch(`${API_BASE}/team`, {
+          method:'POST', credentials:'same-origin',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ username: uname, password: pass })
+        });
+        const data = await res.json().catch(()=>({}));
+        if(res.ok){
+          await refreshTeamFromBackend();
+          renderAdminPanel(false, true);
+        } else if(data.error === 'username_taken'){
+          renderAdminPanel(false, 'exists');
+        } else if(res.status === 401){
+          state.isAdmin = false; state.adminUser = null; closeAdminPanel(); openAdminLogin();
+        } else {
+          renderAdminPanel(false, false);
+        }
+      } catch(e){ /* network error, leave form as-is */ }
+    };
+  }
+  if(state.adminTab === 'account'){
+    document.getElementById('accSaveBtn').onclick = async ()=>{
+      const curPass = document.getElementById('in-accCurPass').value;
+      const newUser = document.getElementById('in-accNewUser').value.trim();
+      const newPass = document.getElementById('in-accNewPass').value;
+      document.querySelectorAll('.field').forEach(el=>el.classList.remove('error'));
+
+      if(!curPass){
+        document.getElementById('f-accCurPass').classList.add('error');
+        return;
+      }
+      if(newPass && newPass.length < 8){
+        document.getElementById('f-accNewPass').classList.add('error');
+        return;
+      }
+      if(!newUser && !newPass){
+        // nothing to change
+        return;
+      }
+
+      const btn = document.getElementById('accSaveBtn');
+      btn.disabled = true;
+      try{
+        const body = { currentPassword: curPass };
+        if(newUser) body.newUsername = newUser;
+        if(newPass) body.newPassword = newPass;
+
+        const res = await fetch(`${API_BASE}/account`, {
+          method:'PUT', credentials:'same-origin',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(body)
+        });
+        const data = await res.json().catch(()=>({}));
+        if(res.ok){
+          if(data.account){
+            state.adminUser = {
+              username: data.account.username,
+              role: data.account.role,
+              name: {ar:data.account.name_ar, en:data.account.name_en}
+            };
+          } else if(newUser){
+            state.adminUser.username = newUser;
+          }
+          if(isOwner) await refreshTeamFromBackend();
+          renderAdminPanel(false, false, true);
+        } else if(res.status === 401){
+          if(data.error === 'wrong_password'){
+            renderAdminPanel(false, false, 'wrongpass');
+          } else {
+            state.isAdmin = false; state.adminUser = null; closeAdminPanel(); openAdminLogin();
+          }
+        } else if(data.error === 'username_taken'){
+          renderAdminPanel(false, false, 'taken');
+        } else {
+          btn.disabled = false;
+        }
+      } catch(e){ btn.disabled = false; }
+    };
+  }
+  if(state.adminTab === 'products'){
+    document.getElementById('apSubmitBtn').onclick = async ()=>{
+      const nameAr = document.getElementById('in-apNameAr').value.trim();
+      const nameEn = document.getElementById('in-apNameEn').value.trim();
+      const price = parseFloat(document.getElementById('in-apPrice').value);
+      const company = document.getElementById('in-apCompany').value.trim();
+      const country = document.getElementById('in-apCountry').value.trim();
+
+      const errs = {};
+      if(!nameAr) errs.apNameAr = 1;
+      if(!nameEn) errs.apNameEn = 1;
+      if(!price || price <= 0) errs.apPrice = 1;
+      if(!company) errs.apCompany = 1;
+      if(!country) errs.apCountry = 1;
+      document.querySelectorAll('.field').forEach(el=>el.classList.remove('error'));
+      Object.keys(errs).forEach(k=>{ const el = document.getElementById('f-'+k); if(el) el.classList.add('error'); });
+      if(Object.keys(errs).length > 0) return;
+
+      const descAr = document.getElementById('in-apDescAr').value.trim() || nameAr;
+      const descEn = document.getElementById('in-apDescEn').value.trim() || nameEn;
+      const material = document.getElementById('in-apMaterial').value.trim() || '-';
+      const shipping = document.getElementById('in-apShipping').value.trim() || (state.lang==='ar' ? 'يحدد لاحقاً' : 'TBD');
+      const cat = document.getElementById('in-apCat').value;
+      const icon = document.getElementById('in-apIcon').value;
+
+      const submitBtn = document.getElementById('apSubmitBtn');
+      submitBtn.disabled = true;
+      try{
+        const res = await fetch(`${API_BASE}/products`, {
+          method:'POST', credentials:'same-origin',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            cat, price, icon,
+            name_ar: nameAr, name_en: nameEn,
+            desc_ar: descAr, desc_en: descEn,
+            material_ar: material, material_en: material,
+            origin_ar: `${company} - ${country}`, origin_en: `${company} - ${country}`,
+            shipping_ar: `${shipping} ${state.lang==='ar'?'يوم عمل':'business days'}`, shipping_en: `${shipping} business days`
+          })
+        });
+        if(res.ok){
+          await loadProductsFromBackend();
+          renderCatPills();
+          renderAdminPanel(true);
+        } else if(res.status === 401){
+          state.isAdmin = false; state.adminUser = null; closeAdminPanel(); openAdminLogin();
+        } else {
+          submitBtn.disabled = false;
+        }
+      } catch(e){ submitBtn.disabled = false; }
+    };
+  }
+}
+
+/* Secret admin entry points: click the logo 5x quickly, or open the page with #admin in the URL. */
+let logoClickCount = 0, logoClickTimer = null;
+document.querySelector('.logo').addEventListener('click', ()=>{
+  logoClickCount++;
+  clearTimeout(logoClickTimer);
+  logoClickTimer = setTimeout(()=>{ logoClickCount = 0; }, 2500);
+  if(logoClickCount >= 5){
+    logoClickCount = 0;
+    openAdminLogin();
+  }
+});
+if(window.location.hash === '#admin'){ openAdminLogin(); }
+
+/* ---------- EVENT WIRING ---------- */
+document.getElementById('langSwitch').addEventListener('click', (e)=>{
+  const btn = e.target.closest('button[data-lang]');
+  if(!btn) return;
+  state.lang = btn.dataset.lang;
+  applyLangShell();
+});
+document.getElementById('cartBtn').onclick = openCartDrawer;
+document.getElementById('closeCart').onclick = closeCartDrawer;
+document.getElementById('cartOverlay').onclick = closeCartDrawer;
+document.getElementById('heroBtn').onclick = ()=>{ window.scrollTo({top: document.getElementById('prodTitle').offsetTop - 100, behavior:'smooth'}); };
+document.getElementById('currencySelector').addEventListener('change', (e)=>{ setCurrency(e.target.value); });
+
+/* ---------- INIT ---------- */
+applyLangShell();
+updateCartCount();
+detectLocationAndCurrency();
+fetchLiveExchangeRates();
+loadProductsFromBackend();
+
+})();
+</script>
+</body>
+</html>
